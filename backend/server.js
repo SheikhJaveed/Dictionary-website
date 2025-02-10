@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors({ origin: 'http://127.0.0.1:5500' }));
+app.use(cors({ origin: 'https://dictionary-website-final.vercel.app/' }));
 app.use(express.json());
 
 const API_KEY = process.env.API_KEY; // Secure API key
