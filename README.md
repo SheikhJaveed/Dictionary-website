@@ -18,7 +18,9 @@ A dictionary web application that allows users to search for word meanings using
 cd backend
 start backend: node server.js
 
-## ** Frontend**
+---
+
+## **Frontend**
 Run the html file using live server 
 
 Note: add your api key in .env file to run the backend
