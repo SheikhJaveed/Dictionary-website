@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary App - Dark Mode</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    
+    <!-- JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand home-btn" href="#">📖 Dictionary App</a>
+            <form class="d-flex ms-auto">
+                <input class="form-control me-2 search-input" type="search" placeholder="Search for a word" aria-label="Search">
+                <button class="btn btn-primary glow-button" type="submit" id="searchBtn">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container text-center mt-5">
+        <h1 class="fw-bold text-info">Find the Meaning of Any Word</h1>
+        <p class="lead text-light">Type a word in the search bar to get its definition.</p>
+        
+        <div class="word-card">
+            <h2 id="word" class="fw-bold text-info">Your word will appear here</h2>
+            <p id="definition" class="text-light">Welcome to the dictionary app.<br>Type your favorite word in the search bar.</p>
+        </div>
+    </div>
+
+    <!-- Suggested Words -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">🌐 Network</h5>
+                        <p class="card-text">A system of roads, railway lines, nerves, etc., that are connected to each other.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">📚 Library</h5>
+                        <p class="card-text">A room or building containing a collection of books that can be borrowed.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card custom-card">
+                    <div class="card-body">
+                        <h5 class="card-title">💎 Precious</h5>
+                        <p class="card-text">Something of great value, often because it is rare or difficult to find.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

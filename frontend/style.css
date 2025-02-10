@@ -1,0 +1,65 @@
+/* Dark Mode Styling */
+body {
+    background-color: #121212;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Search Input */
+.search-input {
+    width: 250px;
+    background-color: #fff;
+    color: rgb(21, 11, 11);
+    border: 1px solid #333;
+}
+
+/* Word Card */
+.word-card {
+    background: #1c1c1c;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    margin-top: 20px;
+}
+
+/* Cards */
+.custom-card {
+    background: #1e1e1e;
+    color: white;
+    border: 1px solid #333;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.custom-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+/* Glowing Button */
+.glow-button {
+    background-color: #0dcaf0;
+    color: black;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+.glow-button:hover {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    .search-input {
+        width: 100%;
+    }
+    
+    .custom-card {
+        margin-bottom: 15px;
+    }
+}
