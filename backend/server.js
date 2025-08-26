@@ -5,8 +5,8 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors({ origin: 'http://127.0.0.1:5500' }));
-app.use(express.json());
+const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://127.0.0.1:5500';
+app.use(cors({ origin: CORS_ORIGIN }));
 
 const API_KEY = process.env.API_KEY; // Secure API key
 
@@ -42,5 +42,5 @@ app.get('/dictionary', async (req, res) => {
 });
 
 
-// Start the backend server on port 3000
-app.listen(3000, () => console.log('✅ Server running on http://localhost:3000'));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
