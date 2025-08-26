@@ -1,29 +1,50 @@
-const dictionary = (word) => {
-    fetch(`http://localhost:3000/dictionary?word=${word}`)
-        .then(response => response.json())
-        .then(response => {
-            if (!response.definition || response.definition.includes("No definition found")) {
-                document.getElementById('word').innerHTML = "Not Found";
-                document.getElementById('definition').innerHTML = "❌ No definition found for this word.";
-            } else {
-                document.getElementById('word').innerHTML = response.word;
-                document.getElementById('definition').innerHTML = response.definition.replace(/\d/g, "<br>$&");
-            }
-        })
-        .catch(err => console.log(err));
-};
+const API_URL = "https://dictionary-website-63cd.onrender.com/dictionary";
 
+// Helper function to update the word and definition in the DOM
+function updateDisplay(wordText, definitionText) {
+    document.getElementById('word').innerHTML = wordText;
+    document.getElementById('definition').innerHTML = definitionText;
+}
+
+// Main dictionary function
+const dictionary = async (word) => {
+    if (!word) {
+        updateDisplay("⚠️ Enter a word", "Please type a word in the search bar.");
+        return;
+    }
+
+    updateDisplay("⌛ Searching...", "Fetching definition...");
+
+    try {
+        const response = await fetch(`${API_URL}?word=${word}`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+        const data = await response.json();
+
+        // Handle API response safely
+        const definition = data.definition || "❌ No definition found for this word.";
+        const validWord = data.word || word;
+
+        updateDisplay(validWord, definition);
+    } catch (err) {
+        console.error(err);
+        updateDisplay("❌ Error", "Failed to fetch definition. Please try again later.");
+    }
+};
 
 // Event listener for search button
 document.getElementById("searchBtn").addEventListener("click", (e) => {
     e.preventDefault();
-    dictionary(document.querySelector("input[type='search']").value);
+    const wordInput = document.querySelector("input[type='search']").value.trim();
+    dictionary(wordInput);
 });
 
-
+// Event listener for home button to reset display
 document.querySelector(".home-btn").addEventListener("click", (e) => {
-    e.preventDefault(); // Prevents page reload
-    document.querySelector("input[type='search']").value = ""; // Clears search input
-    document.getElementById("word").innerHTML = "Your word will appear here"; // Resets word display
-    document.getElementById("definition").innerHTML = "Welcome to the dictionary app.<br>Type your favorite word in the search bar."; // Resets definition
+    e.preventDefault();
+    document.querySelector("input[type='search']").value = "";
+    updateDisplay(
+        "Your word will appear here",
+        "Welcome to the dictionary app.<br>Type your favorite word in the search bar."
+    );
 });
