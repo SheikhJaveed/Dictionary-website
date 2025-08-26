@@ -6,7 +6,12 @@ const cors = require('cors');
 const app = express();
 
 const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://127.0.0.1:5500';
-app.use(cors({ origin: CORS_ORIGIN }));
+app.use(cors({
+    origin: [
+        'https://sheikhjaveed.github.io',
+        'https://sheikhjaveed.github.io/Dictionary-website'
+    ]
+}));
 
 const API_KEY = process.env.API_KEY; // Secure API key
 
