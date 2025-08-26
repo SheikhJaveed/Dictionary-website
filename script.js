@@ -1,4 +1,4 @@
-const API_URL = "https://dictionary-website-63cd.onrender.com/dictionary";
+const API_URL = "https://dictionary-website-ta65.onrender.com/";
 
 // Helper function to update the word and definition in the DOM
 function updateDisplay(wordText, definitionText) {
