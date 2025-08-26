@@ -10,6 +10,11 @@ app.use(cors({ origin: CORS_ORIGIN }));
 
 const API_KEY = process.env.API_KEY; // Secure API key
 
+// Root route (optional, just to confirm server works)
+app.get("/", (req, res) => {
+  res.send("Dictionary API is running ✅");
+});
+
 // Dictionary API route
 app.get('/dictionary', async (req, res) => {
     const word = req.query.word; 

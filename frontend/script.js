@@ -1,5 +1,7 @@
+const API_URL = "https://dictionary-website-63cd.onrender.com/dictionary";
+
 const dictionary = (word) => {
-    fetch(`http://localhost:3000/dictionary?word=${word}`)
+    fetch(`${API_URL}?word=${word}`)
         .then(response => response.json())
         .then(response => {
             if (!response.definition || response.definition.includes("No definition found")) {
